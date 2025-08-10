@@ -11,10 +11,23 @@ config_version=5
 [application]
 
 config/name="Toxic Crisis"
+run/main_scene="uid://fii68y6ahsda"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+NetworkManager="*res://Networking/network_manager.gd"
+
+[debug]
+
+file_logging/enable_file_logging=true
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[steam]
+
+initialization/app_id=480

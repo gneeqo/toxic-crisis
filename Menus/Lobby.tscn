@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs60j3lt7dn0l"]
+
+[ext_resource type="Script" uid="uid://cxxbd166dumqd" path="res://Menus/lobby.gd" id="1_s3bcv"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s3bcv")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="LocalPlayerName" type="RichTextLabel" parent="BoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 25
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="RemotePlayerName" type="RichTextLabel" parent="BoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/mono_font_size = 25
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
