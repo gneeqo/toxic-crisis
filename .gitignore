@@ -11,6 +11,12 @@ export_credentials.cfg
 # Imported translations (automatically generated from CSV files)
 *.translation
 
+# extra stuff
+*.mdc
+.cursor/
+.vscode/
+addons
+
 # Mono-specific ignores
 .mono/
 data_*/

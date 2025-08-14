@@ -1,16 +1,35 @@
 extends Control
-@export var LobbyMenu:PackedScene
+@export var LobbyMenu: PackedScene
+@export var ServerButtonClass: PackedScene
+
+func _ready() -> void:
+    ServerBrowser.lobbies_updated.connect(populate_lobbies)
+    NetworkManager.lobby_joined.connect(on_lobby_joined)
+    NetworkManager.lobby_hosted.connect(on_lobby_joined)
 
 func _on_host_pressed() -> void:
-    NetworkManager.create_lobby()
-    NetworkManager.connect("lobby_joined",Callable(self,"on_lobby_joined"))
+    NetworkManager.host()
     
+    ServerBrowser.add_lobby(NetworkManager.local_id, $VBoxContainer/HBoxContainer/hostName.text)
     
 
-func on_lobby_joined()->void:
+func on_lobby_joined() -> void:
     add_sibling(LobbyMenu.instantiate())
     queue_free()
 
-
 func _on_join_pressed() -> void:
-    pass # Replace with function body.
+    NetworkManager.join($VBoxContainer/JoinID.text)
+    
+
+func populate_lobbies(lobbies: Array) -> void:
+    for lobby: Dictionary in lobbies:
+        var server_button: Control = ServerButtonClass.instantiate()
+        server_button.lobby_id = lobby["online_id"]
+        server_button.lobby_name = lobby["host_name"]
+        %Lobby_List.add_child(server_button)
+
+
+func _on_refresh_lobbies_pressed() -> void:
+    for child: ServerButton in %Lobby_List.get_children():
+        child.queue_free()
+    ServerBrowser.request_lobbies()

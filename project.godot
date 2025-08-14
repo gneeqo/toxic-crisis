@@ -18,10 +18,17 @@ config/icon="res://icon.svg"
 [autoload]
 
 NetworkManager="*res://Networking/network_manager.gd"
+ServerBrowser="*res://Networking/server_browser.gd"
 
 [debug]
 
 file_logging/enable_file_logging=true
+gdscript/warnings/untyped_declaration=2
+gdscript/warnings/inferred_declaration=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/nodetunnel/plugin.cfg")
 
 [rendering]
 
