@@ -14,7 +14,7 @@ func _on_host_pressed() -> void:
     
 
 func on_lobby_joined() -> void:
-    add_sibling(LobbyMenu.instantiate())
+    add_sibling(LobbyMenu.instantiate(),true)
     queue_free()
 
 func _on_join_pressed() -> void:
@@ -26,7 +26,7 @@ func populate_lobbies(lobbies: Array) -> void:
         var server_button: Control = ServerButtonClass.instantiate()
         server_button.lobby_id = lobby["online_id"]
         server_button.lobby_name = lobby["host_name"]
-        %Lobby_List.add_child(server_button)
+        %Lobby_List.add_child(server_button,true)
 
 
 func _on_refresh_lobbies_pressed() -> void:

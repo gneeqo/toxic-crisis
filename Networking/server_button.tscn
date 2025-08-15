@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://6a00t8gksevu"]
 
-[ext_resource type="Script" uid="uid://c1yph8c8d7k5u" path="res://server_button.gd" id="1_0c2i8"]
+[ext_resource type="Script" uid="uid://c1yph8c8d7k5u" path="res://Networking/server_button.gd" id="1_0c2i8"]
 
 [node name="ServerButton" type="Control"]
 layout_mode = 3
