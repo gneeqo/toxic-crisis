@@ -7,18 +7,17 @@ var player1: Player
 var player2: Player
 var init:bool = false
 
-func _process(_delta: float) -> void:
-    if not init and get_parent() != null:
-        init = true
-        initialize()
+func _enter_tree() -> void:
+    initialize()
+
 
 func initialize() -> void:
     player1 = player_scene.instantiate()
     player1.name = "Player1"
-    player1.position = player_spawn_points[0].position
+    player1.transform = player_spawn_points[0].transform
     add_child(player1,true)
 
     player2 = player_scene.instantiate()
     player2.name = "Player2"
-    player2.position = player_spawn_points[1].position
+    player2.transform = player_spawn_points[1].transform
     add_child(player2,true)

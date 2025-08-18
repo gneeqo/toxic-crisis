@@ -16,7 +16,7 @@ func _on_start_button_pressed() -> void:
     else:
         print("Not enough players to start")
 
-@rpc("any_peer","call_local", "reliable")
+@rpc("call_local","authority")
 func start_match() -> void:
     var game: MatchManager = match_scene.instantiate()
     game.name = "Match"

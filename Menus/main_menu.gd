@@ -7,6 +7,7 @@ func _ready() -> void:
     NetworkManager.lobby_joined.connect(on_lobby_joined)
     NetworkManager.lobby_hosted.connect(on_lobby_joined)
 
+
 func _on_host_pressed() -> void:
     NetworkManager.host()
     

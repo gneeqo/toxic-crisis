@@ -7,6 +7,9 @@ var server_id: String = ""
 var client_id: String = ""
 var local_id: String = ""
 
+var server_unique_id: int
+var client_unique_id: int
+
 
 #becomes true when player connects
 var player_connected: bool = false
@@ -33,6 +36,7 @@ func host() -> void:
     DisplayServer.clipboard_set(local_id)
     #this player hosted, so they are the server
     server_id = local_id
+    set_server_unique_id.rpc(multiplayer.get_unique_id())
     is_server = true
     lobby_hosted.emit()
     #call on_peer_connected when someone joins
@@ -49,7 +53,12 @@ func join(id: String) -> void:
     is_server = false
     server_id = id
     client_id = local_id
-
+    set_client_unique_id.rpc(multiplayer.get_unique_id())
+    
+    #manually set server unique ID
+    #TODO: this sucks balls
+    server_unique_id = 1
+    
     lobby_joined.emit()
 
 func on_peer_connected(id: int) -> void:
@@ -57,3 +66,11 @@ func on_peer_connected(id: int) -> void:
     player_connected = true
     ServerBrowser.remove_lobby(server_id)
     
+    
+@rpc("any_peer","call_local","reliable")
+func set_client_unique_id(id:int)->void:
+    client_unique_id = id
+
+@rpc("any_peer","call_local","reliable")
+func set_server_unique_id(id:int)->void:
+    server_unique_id = id   

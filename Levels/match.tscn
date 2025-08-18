@@ -55,7 +55,7 @@ transform = Transform3D(-0.973455, 0, 0.228878, 0, 1, 0, -0.228878, 0, -0.973455
 gizmo_extents = 2.4
 
 [node name="Spawn2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.10831, -10.8568)
+transform = Transform3D(0.9884, 0.00821444, -0.151652, -0.00600659, 0.999869, 0.0150111, 0.151755, -0.0139261, 0.98832, 0, 3.10831, -10.8568)
 gizmo_extents = 2.4
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
