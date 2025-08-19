@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 NetworkManager="*res://Networking/network_manager.gd"
 ServerBrowser="*res://Networking/server_browser.gd"
+GlobalList="*res://ActionList/global_list.gd"
 
 [debug]
 
